@@ -19,12 +19,27 @@ import com.frankmoley.lil.learningspring.data.RoomRepository;
 
 @Service
 public class ReservationService {
-    @Autowired
+
     private RoomRepository roomRepository;
-    @Autowired
+
     private GuestRepository guestRepository;
-    @Autowired
+
     private ReservationRepository reservationRepository;
+
+    @Autowired
+    public void setRoomRepository(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
+
+    @Autowired
+    public void setGuestRepository(GuestRepository guestRepository) {
+        this.guestRepository = guestRepository;
+    }
+
+    @Autowired
+    public void setReservationRepository(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
         Iterable<Room> rooms = this.roomRepository.findAll();
