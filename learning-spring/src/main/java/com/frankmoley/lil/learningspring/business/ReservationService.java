@@ -69,11 +69,13 @@ public class ReservationService {
         return roomReservations;
     }
 
-    public List<Guest> getHotelGuests(){
+    public List<Guest> getHotelGuests() {
         Iterable<Guest> guests = this.guestRepository.findAll();
         List<Guest> guestList = new ArrayList<>();
-        guests.forEach(guest->{guestList.add(guest);});
-        guestList.sort(new Comparator<Guest>(){
+        guests.forEach(guest -> {
+            guestList.add(guest);
+        });
+        guestList.sort(new Comparator<Guest>() {
             @Override
             public int compare(Guest o1, Guest o2) {
                 if (o1.getLastName().equals(o2.getLastName())) {
@@ -83,5 +85,27 @@ public class ReservationService {
             }
         });
         return guestList;
+    }
+
+    public void addGuest(Guest guest) {
+        if (null == guest) {
+            throw new RuntimeException("Guest cannot be null");
+        }
+        this.guestRepository.save(guest);
+    }
+
+    public List<Room> getRooms() {
+        Iterable<Room> rooms = this.roomRepository.findAll();
+        List<Room> roomList = new ArrayList<>();
+        rooms.forEach(room -> {
+            roomList.add(room);
+        });
+        roomList.sort(new Comparator<Room>() {
+            @Override
+            public int compare(Room o1, Room o2) {
+                return o1.getRoomNumber().compareTo(o2.getRoomNumber());
+            }
+        });
+        return roomList;
     }
 }
