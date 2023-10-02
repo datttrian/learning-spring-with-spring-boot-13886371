@@ -8,13 +8,17 @@ import com.frankmoley.lil.learningspring.business.RoomReservation;
 import com.frankmoley.lil.learningspring.data.Guest;
 import com.frankmoley.lil.learningspring.data.Reservation;
 import com.frankmoley.lil.learningspring.data.Room;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AppStartupEvent implements ApplicationListener<ApplicationReadyEvent> {
+    @Autowired
     private ReservationService reservationService;
+    @Autowired
     private DateUtils dateUtils;
 
 

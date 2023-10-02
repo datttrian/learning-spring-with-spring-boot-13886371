@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.frankmoley.lil.learningspring.data.Guest;
@@ -16,9 +17,13 @@ import com.frankmoley.lil.learningspring.data.ReservationRepository;
 import com.frankmoley.lil.learningspring.data.Room;
 import com.frankmoley.lil.learningspring.data.RoomRepository;
 
+@Service
 public class ReservationService {
+    @Autowired
     private RoomRepository roomRepository;
+    @Autowired
     private GuestRepository guestRepository;
+    @Autowired
     private ReservationRepository reservationRepository;
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
