@@ -8,19 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ROOM")
+@Table(name = "ROOM")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="ROOM_ID")
+    @Column(name = "ROOM_ID")
     private long id;
-    @Column(name="NAME")
+    @Column(name = "NAME")
     private String name;
-    @Column(name="ROOM_NUMBER")
+    @Column(name = "ROOM_NUMBER")
     private String roomNumber;
-    @Column(name="BED_INFO")
+    @Column(name = "BED_INFO")
     private String bedInfo;
-
 
     public long getId() {
         return this.id;
@@ -54,14 +53,13 @@ public class Room {
         this.bedInfo = bedInfo;
     }
 
-
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", roomNumber='" + getRoomNumber() + "'" +
-            ", bedInfo='" + getBedInfo() + "'" +
-            "}";
+                " id='" + getId() + "'" +
+                ", name='" + getName() + "'" +
+                ", roomNumber='" + getRoomNumber() + "'" +
+                ", bedInfo='" + getBedInfo() + "'" +
+                "}";
     }
 }

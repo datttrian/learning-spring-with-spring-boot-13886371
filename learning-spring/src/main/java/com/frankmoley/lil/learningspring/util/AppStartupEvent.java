@@ -16,7 +16,8 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
     private final GuestRepository guestRepository;
     private final ReservationRepository reservationRepository;
 
-    public AppStartupEvent(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservationRepository) {
+    public AppStartupEvent(RoomRepository roomRepository, GuestRepository guestRepository,
+            ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
         this.guestRepository = guestRepository;
         this.reservationRepository = reservationRepository;
