@@ -20,24 +20,16 @@ import com.frankmoley.lil.learningspring.data.RoomRepository;
 @Service
 public class ReservationService {
 
-    private RoomRepository roomRepository;
+    private final RoomRepository roomRepository;
 
-    private GuestRepository guestRepository;
+    private final GuestRepository guestRepository;
 
-    private ReservationRepository reservationRepository;
+    private final ReservationRepository reservationRepository;
 
-    @Autowired
-    public void setRoomRepository(RoomRepository roomRepository) {
+    public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository,
+            ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
-    }
-
-    @Autowired
-    public void setGuestRepository(GuestRepository guestRepository) {
         this.guestRepository = guestRepository;
-    }
-
-    @Autowired
-    public void setReservationRepository(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
     }
 
